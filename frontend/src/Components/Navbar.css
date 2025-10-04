@@ -1,0 +1,232 @@
+.bar-container{
+    display: flex;
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    align-items: center;
+    justify-content: space-between;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 70px;
+    gap: 5px;
+    z-index: 1000;
+}
+
+.webmarket-icon img{
+    display: flex;
+    height: 70px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+@keyframes bounce-boing {
+    0%, 100% { 
+        transform: translateY(0)  
+    }
+    25% { 
+        transform: translateY(-20px)  
+    }
+    50% { 
+        transform: translateY(0)  
+    }
+    75% { 
+        transform: translateY(-10px) 
+    }
+}
+
+.webmarket-icon:hover  {
+  animation: bounce-boing 0.8s ease; /* short, fast bounce */
+}
+
+/*SEARCH BAR*/
+.search-form{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 2;
+    overflow: hidden; 
+ 
+}
+
+
+.search-form input{
+    flex: 1;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;          
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-form:focus-within {
+    border: 4px solid #000000; /* blue border */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+
+
+/*SEARCH BUTTON*/
+.submit-button{
+    padding: 0;
+    border: 0px;                         
+    cursor: pointer;        
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-button img{ 
+    display: flex;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+/*GETS THE BLUE COLOR OUT OF THE BUTTONS*/
+.links a{
+    text-decoration: none;
+    color: white;
+}
+
+/*LIKED PRODUCTS BUTTON*/
+.likes-button a{
+    text-decoration: none;
+    color: white;
+}
+
+.likes-button{
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+
+}
+.likes-button::after{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+    height: 3px;
+    width: 0%;
+    background: white;
+    transition: width 0.3s ease;
+}
+.likes-button:hover::after{
+    width: 100%;
+}
+
+/*LOGIN BUTTON*/
+.login-button a{
+    text-decoration: none;
+    color: white;
+}
+.login-button{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+}
+.login-button::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0%;
+    background: white;
+    transition: width 0.3s ease;
+}
+.login-button:hover::after{
+    width: 100%;
+}
+
+
+/*SIGNUP BUTTON*/
+.signup-button a {
+  color: white;
+  text-decoration: none;
+  background: none;
+  display: inline-block;
+}
+
+/* Remove hover, focus, visited, active color changes */
+.signup-button a:hover,
+.signup-button a:focus,
+.signup-button a:active,
+.signup-button a:visited {
+  color: white;
+  text-decoration: none;
+}
+.signup-button a:hover {
+  text-decoration: none;
+}
+
+.signup-button{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+}
+
+.signup-button::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0%;
+  background: white;
+  transition: width 0.3s ease;
+}
+.signup-button:hover::after{
+  width: 100%;
+}
+
+
+/*LOGOUT BUTTON*/
+
+.logout-btn{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 37px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+}
+.logout-btn::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0%;
+    background: white;
+    transition: width 0.3s ease;
+}
+.logout-btn:hover::after{
+    width: 100%;
+}
+
+

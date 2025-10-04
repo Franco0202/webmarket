@@ -1,0 +1,85 @@
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Liked_product.css";
+import Navbar from "../Components/Navbar";
+import LikeButton from "../Components/Like_button";
+
+function LikedProducts({ user, setUser, cartItems, setCartItems, cartCount, setCartCount }) {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  // ✅ Redirect if not logged in
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
+
+  useEffect(() => {
+    if (!user) return; // don't fetch if no user
+
+    const fetchLikes = async () => {
+      try {
+        const res = await fetch("http://localhost:8000/api/auth/likes/", {
+          credentials: "include",
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setProducts(data);
+        } else {
+          console.error("Failed to fetch liked products:", res.status);
+          setProducts([]);
+        }
+      } catch (err) {
+        console.error("Error fetching liked products:", err);
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLikes();
+  }, [user]);
+
+  if (loading) return <p>Loading liked products...</p>;
+  if (products.length === 0)
+    return <p>You haven’t liked any products yet. Start exploring and liking products!</p>;
+
+  return (
+    <div className="liked-products">
+      <Navbar
+        user={user}
+        setUser={setUser}
+        setCartItems={setCartItems}
+        setCartCount={setCartCount}
+        cartItems={cartItems}
+        cartCount={cartCount}
+      />
+
+      {products.map((p) => (
+        <div className="liked-product-card" key={p.id}>
+          <Link to={`/products/${p.id}`} className="liked-product-card-link">
+            {p.images?.length > 0 && (
+              <img
+                src={`http://localhost:8000${p.images[0]?.image}`}
+                alt={p.name}
+              />
+            )}
+            <div className="liked-product-info">
+              <h3>{p.name}</h3>
+              <p>US$ {p.price}</p>
+            </div>
+            <p className="liked-product-text">{p.text}</p>
+          </Link>
+
+          <div className="like">
+            <LikeButton productId={p.id} user={user} />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default LikedProducts;

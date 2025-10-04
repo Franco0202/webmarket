@@ -1,0 +1,17 @@
+.AddtoCart {
+  display: flex;
+  right: 0px;
+  gap: 6px;
+  background: linear-gradient(135deg, #d6e6f2, #f2f2f2, #f9f7d9); 
+  color: rgb(71, 71, 71);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.AddtoCart:hover {
+  background: linear-gradient(135deg, #96c7ec, #f2f2f2, #f7f08f); 
+  transform: scale(0.9);
+}

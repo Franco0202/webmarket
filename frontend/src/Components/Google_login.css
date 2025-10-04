@@ -1,0 +1,12 @@
+.google-login {
+  background: none;
+  border: none;
+  cursor: pointer;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.google-login:hover {
+  color: #94d0f3; 
+
+}

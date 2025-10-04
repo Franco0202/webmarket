@@ -1,0 +1,22 @@
+.buy-now-button{
+  width: 100%;
+  padding: 14px;                  
+  background: #000000;            
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Varela Round';            
+  font-size: 18px;                
+  font-weight: 900;       /* bold letters */
+  letter-spacing: 2px;            
+  text-transform: uppercase;      
+  cursor: pointer;
+  transition: 0.3s ease;     
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+}
+
+.buy-now-button:hover {
+  transform: scale(0.9);
+  background: #333333;           
+}
+

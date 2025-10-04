@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CA:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+body {
+  font-family: 'PT Sans';
+}
+
+
+
+.liked-products {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* space between cards */
+  background-color: #fff; /* white background for the container */
+  border-radius: 12px;
+  max-width: 1200px; /* make it smaller than full page width */
+  margin: 100px auto; /* center horizontally with margin from top */
+  padding: 30px; /* give space around the cards */
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1); /* optional nice shadow */
+  position: relative;
+}
+
+.liked-product-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #ddd;
+  background-color: #fafafa; /* slightly different so cards stand out */
+  border-radius: 8px;
+  width: 100%; /* stretch inside container */
+  position: relative; 
+}
+.liked-product-card-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color:black;
+  cursor: pointer; 
+  gap: 20px;
+  border: 1px solid #ddd;
+  background-color: #fafafa; /* slightly different so cards stand out */
+  border-radius: 8px;
+  width: 100%; /* stretch inside container */
+  position: relative; 
+  transition: color 0,2s ;
+}
+
+.liked-product-card-link:hover{
+  color:  #cc7a2d;
+}
+
+.liked-product-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.liked-product-info {
+  display: flex;
+  flex-direction: column;
+  word-spacing: normal;
+  word-break: break-all;
+  font-size: small;
+  justify-content: flex-start;
+  white-space: nowrap;      /* keep text in one line */
+  overflow: hidden;         /* cut off overflow */
+  text-overflow: ellipsis;  /* show "..." */
+  max-width: 200px;         /* adjust width to your layout */
+}
+
+.liked-product-text {
+  font-size: 15px;
+  max-width: 500px;     /* limit width */
+  display: -webkit-box; /* enable flex-like box for clamping */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5; /* show max 3 lines */
+  overflow: hidden;     /* hide extra text */
+  text-overflow: ellipsis; /* adds "..." */
+  white-space: normal;  /* allow wrapping */
+  word-wrap: break-word;
+}
+
+.like {
+  position: absolute;
+  top: 0px;
+  right: 0;
+}
