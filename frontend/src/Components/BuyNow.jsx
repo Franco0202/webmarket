@@ -1,4 +1,4 @@
-import "./buyNow.css"
+import "./BuyNow.css"
 
 function BuyNow(){
     return(
