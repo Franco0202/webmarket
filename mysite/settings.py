@@ -108,7 +108,7 @@ LOGOUT_REDIRECT_URL = "/"
 # ✅ Static files (React build)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "frontend" / "dist" / "assets",  # ✅ React assets
+    BASE_DIR / "frontend" / "dist",  # ✅ React assets
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
