@@ -12,7 +12,7 @@ urlpatterns = [
     # 🔑 AUTH (from dj-rest-auth + allauth)
     path("auth/", include("dj_rest_auth.urls")),                  
     path("auth/registration/", include("dj_rest_auth.registration.urls")),
-    path("accounts/", include("allauth.urls")),
+
 
 
 

@@ -32,7 +32,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^eoc@a1=1j7hu#-5(n99qv05okyjl07wgb+lr-7p^9n4%8ch*h'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -168,12 +168,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "frontend", "build", "static"),
+    os.path.join(BASE_DIR, 'frontend', 'dist', 'assets'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
-TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, "frontend", "build")]
-
+TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'frontend', 'dist')]
 
 
 AUTHENTICATION_BACKENDS =[
