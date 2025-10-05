@@ -15,7 +15,11 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1,.onrender.com").split(",")
+ALLOWED_HOSTS = [
+    "webmarket-q1am.onrender.com",  # ✅ your Render domain
+    "localhost",
+    "127.0.0.1",
+]
 
 # ✅ Installed apps
 INSTALLED_APPS = [
@@ -105,13 +109,7 @@ SOCIALACCOUNT_PROVIDERS = {
 LOGIN_REDIRECT_URL = "/"  # ✅ let Django serve React root
 LOGOUT_REDIRECT_URL = "/"
 
-# ✅ Static files (React build)
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "frontend" / "dist" / "assets", # ✅ React assets
-]
-STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 # ✅ Media files
 MEDIA_URL = '/media/'
@@ -159,3 +157,9 @@ USE_I18N = True
 USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ✅ Static files (React build)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'polls' / 'static']
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
