@@ -166,11 +166,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# 🧩 STATIC FILES
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'dist', 'assets'),
+    BASE_DIR / "frontend" / "dist" / "assets",  # React assets
 ]
-TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'frontend', 'dist')]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# 🧩 MEDIA FILES
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
+
+# 🧩 TEMPLATES (so Django can find your React index.html)
+TEMPLATES[0]["DIRS"] = [BASE_DIR / "frontend" / "dist"]
 
 
 AUTHENTICATION_BACKENDS =[
