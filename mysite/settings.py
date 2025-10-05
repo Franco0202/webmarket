@@ -66,7 +66,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "frontend" / "dist"],  # ✅ React build folder
+        'DIRS': [BASE_DIR / 'polls' / 'static' / 'dist'],  # ✅ React build folder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
