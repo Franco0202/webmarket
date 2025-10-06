@@ -16,7 +16,7 @@ export default function SignUp() {
     setError("");
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/auth/login/`, {
+      const response = await fetch(`${API_BASE_URL}/api/auth/registration/`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -24,11 +24,14 @@ export default function SignUp() {
       });
 
       const data = await response.json();
+
       if (response.ok) {
-        // success → redirect to login
         navigate("/login");
       } else {
-        setError(JSON.stringify(data));
+        setError(
+          data.detail ||
+          Object.entries(data).map(([k, v]) => `${k}: ${v}`).join(", ")
+        );
       }
     } catch (err) {
       setError("Network error");
@@ -38,15 +41,15 @@ export default function SignUp() {
   return (
     <div className="signup-container">
       <div className="signup-card">
-      <h2 className="signup-title">Sign Up</h2>
-      <form className="signup-form" onSubmit={handleRegister}>
-        <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} required />
-        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
-        <input type="password" placeholder="Password" value={password1} onChange={e => setPassword1(e.target.value)} required />
-        <input type="password" placeholder="Confirm Password" value={password2} onChange={e => setPassword2(e.target.value)} required />
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button className="signupbtn" type="submit">Sign Up</button>
-      </form>
+        <h2 className="signup-title">Sign Up</h2>
+        <form className="signup-form" onSubmit={handleRegister}>
+          <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} required />
+          <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
+          <input type="password" placeholder="Password" value={password1} onChange={e => setPassword1(e.target.value)} required />
+          <input type="password" placeholder="Confirm Password" value={password2} onChange={e => setPassword2(e.target.value)} required />
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <button className="signupbtn" type="submit">Sign Up</button>
+        </form>
       </div>
     </div>
   );

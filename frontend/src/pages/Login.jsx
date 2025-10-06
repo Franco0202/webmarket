@@ -4,14 +4,13 @@ import GoogleLogin from "../Components/Google_login";
 import "./Login.css";
 import { API_BASE_URL } from "../utils/api";
 
-// Helper to get CSRF token from cookie
 function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
-export default function LoginPage({setUser}) {
+export default function LoginPage({ setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,45 +21,38 @@ export default function LoginPage({setUser}) {
     setError("");
 
     try {
-      const response = await fetch(
-        `${API_BASE_URL}/api/auth/login/`, 
-        {
-          method: "POST",
-          credentials: "include", // send cookies
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": getCookie("csrftoken"), // CSRF token for Django
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/api/auth/login/`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": getCookie("csrftoken"),
+        },
+        body: JSON.stringify({ email, password }), // or username if your backend uses it
+      });
 
       const data = await response.json();
 
       if (response.ok) {
-     // 👇 fetch the current user after login
-        const userRes = await fetch(`${API_BASE_URL}/api/auth/login/`,  {
+        // ✅ fetch the logged-in user
+        const userRes = await fetch(`${API_BASE_URL}/api/auth/user/`, {
           credentials: "include",
         });
         const userData = await userRes.json();
-        setUser(userData);  // 👈 update React state
-
-        navigate("/"); // go home
+        setUser(userData);
+        navigate("/");
       } else {
-        const data = await response.json();
         setError(data.detail || JSON.stringify(data));
       }
     } catch (err) {
-      setError("Network error. Make sure Django backend is running.");
+      setError("Network error. Make sure the backend is running.");
     }
   };
 
-  
   return (
     <div className="login-container">
       <div className="login-card">
         <h2 className="login-title">Welcome Back</h2>
-
         <form className="login-form" onSubmit={handleLogin}>
           <input
             type="email"
@@ -77,10 +69,7 @@ export default function LoginPage({setUser}) {
             required
           />
           {error && <p className="error-msg">{error}</p>}
-
-          <button type="submit" className="login-btn">
-            Login
-          </button>
+          <button type="submit" className="login-btn">Login</button>
         </form>
 
         <div className="divider">or continue with</div>
@@ -88,10 +77,7 @@ export default function LoginPage({setUser}) {
 
         <div className="signup-text">
           Don’t have an account?{" "}
-          <button
-            className="signup-btn"
-            onClick={() => navigate("/registration")}
-          >
+          <button className="signup-btn" onClick={() => navigate("/registration")}>
             Sign Up
           </button>
         </div>
