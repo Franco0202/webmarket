@@ -164,3 +164,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'polls' / 'static']
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Allauth / dj-rest-auth settings
+ACCOUNT_USERNAME_REQUIRED = False          # don't require username
+ACCOUNT_EMAIL_REQUIRED = True              # require email
+ACCOUNT_AUTHENTICATION_METHOD = "email"   # login using email
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
