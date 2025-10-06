@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Liked_product.css";
 import Navbar from "../Components/Navbar";
 import LikeButton from "../Components/Like_button";
+import { API_BASE_URL } from "../utils/api";
 
 function LikedProducts({ user, setUser, cartItems, setCartItems, cartCount, setCartCount }) {
   const [products, setProducts] = useState([]);
@@ -21,7 +22,7 @@ function LikedProducts({ user, setUser, cartItems, setCartItems, cartCount, setC
 
     const fetchLikes = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/auth/likes/", {
+        const res = await fetch(`${API_BASE_URL}/api/auth/login/`, {
           credentials: "include",
         });
         if (res.ok) {
@@ -62,7 +63,7 @@ function LikedProducts({ user, setUser, cartItems, setCartItems, cartCount, setC
           <Link to={`/products/${p.id}`} className="liked-product-card-link">
             {p.images?.length > 0 && (
               <img
-                src={`http://localhost:8000${p.images[0]?.image}`}
+                src={`${API_BASE_URL}${p.images[0]?.image}`}
                 alt={p.name}
               />
             )}

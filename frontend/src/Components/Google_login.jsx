@@ -1,6 +1,8 @@
+import { API_BASE_URL } from "../utils/api";
+
 function GoogleLogin() {
   const handleGoogleLogin = () => {
-    window.location.href = "https://webmarket-5sfc.onrender.com/accounts/google/login/?process=login";
+    window.location.href = `${API_BASE_URL}/accounts/google/login/?process=login`;
   };
 
   return (

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./CartDropdown.css";
 import cart from "../assets/images/cart_icon.png";
 import { Ban } from "lucide-react";
+import { API_BASE_URL } from "../utils/api";
 
 function getCookie(name) {
   const value = `; ${document.cookie}`;
@@ -25,7 +26,7 @@ function CartDropdown({ cartItems, cartCount, setCartItems, setCartCount, user})
 
   const handleRemove = async (productId) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/auth/cart/remove/${productId}/`, {
+      const res = await fetch(`${API_BASE_URL}/api/auth/cart/remove/${productId}/`, {
         method: "DELETE",
         credentials: "include",
         headers: { "X-CSRFToken": getCookie("csrftoken") }
@@ -44,7 +45,7 @@ function CartDropdown({ cartItems, cartCount, setCartItems, setCartCount, user})
 
   useEffect(() => {
   if (user) {
-    fetch("http://localhost:8000/api/auth/cart/", {
+    fetch(`${API_BASE_URL}/api/auth/cart/`, {
       credentials: "include",
       headers: { "X-CSRFToken": getCookie("csrftoken") }
     })
@@ -76,7 +77,7 @@ function CartDropdown({ cartItems, cartCount, setCartItems, setCartCount, user})
                 <Link to={`/products/${item.product.id}`} className="cart-item-link">
                   <div className="cart-item">
                     <img
-                      src={`http://localhost:8000${item.product.images?.[0]?.image ?? ""}`}
+                      src={`${API_BASE_URL}${item.product.images?.[0]?.image ?? ""}`}
                       alt={item.product.name}
                       className="cart-item-image"
                     />

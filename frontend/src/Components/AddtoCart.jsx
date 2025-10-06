@@ -2,6 +2,7 @@ import { ShoppingCart, Ban } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./AddtoCart.css";
+import { API_BASE_URL } from "../utils/api";
 
 function CartButton({ productId, cartItems = [], setCartCount, setCartItems, user }) {
   const isInCart = cartItems.some((item) => item.product.id === productId);
@@ -23,7 +24,7 @@ function CartButton({ productId, cartItems = [], setCartCount, setCartItems, use
     }
     setIsLoading(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/auth/cart/add/${productId}/`, {
+      const res = await fetch(`${API_BASE_URL}/api/auth/cart/add/${productId}/`, {
         method: "POST",
         credentials: "include",
         headers: { "X-CSRFToken": getCookie("csrftoken") },
@@ -47,7 +48,7 @@ function CartButton({ productId, cartItems = [], setCartCount, setCartItems, use
     }
     setIsLoading(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/auth/cart/remove/${productId}/`, {
+      const res = await fetch(`${API_BASE_URL}/api/auth/cart/remove/${productId}/`, {
         method: "DELETE",
         credentials: "include",
         headers: { "X-CSRFToken": getCookie("csrftoken") },

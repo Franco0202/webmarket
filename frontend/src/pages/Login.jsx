@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GoogleLogin from "../Components/Google_login";
 import "./Login.css";
+import { API_BASE_URL } from "../utils/api";
 
 // Helper to get CSRF token from cookie
 function getCookie(name) {
@@ -22,7 +23,7 @@ export default function LoginPage({setUser}) {
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/auth/login/", 
+        `${API_BASE_URL}/api/auth/login/`, 
         {
           method: "POST",
           credentials: "include", // send cookies
@@ -38,7 +39,7 @@ export default function LoginPage({setUser}) {
 
       if (response.ok) {
      // 👇 fetch the current user after login
-        const userRes = await fetch("http://localhost:8000/api/auth/user/", {
+        const userRes = await fetch(`${API_BASE_URL}/api/auth/login/`,  {
           credentials: "include",
         });
         const userData = await userRes.json();

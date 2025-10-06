@@ -5,6 +5,8 @@ import Navbar from "../Components/Navbar";
 import LikeButton from "../Components/Like_button";
 import CartButton from "../Components/AddtoCart";
 import BuyNow from "../Components/BuyNow"
+import { API_BASE_URL } from "../utils/api"; 
+
 
 function ProductDetail({setCartItems, user, setUser, setCartCount, cartItems, cartCount }) {
   const { id } = useParams();
@@ -14,7 +16,7 @@ function ProductDetail({setCartItems, user, setUser, setCartCount, cartItems, ca
 
 useEffect(() => {
   if (product?.images?.length > 0) {
-    setMainImage(`http://localhost:8000${product.images[0].image}`);
+    setMainImage(`${API_BASE_URL}${product.images[0].image}`);
   }
 }, [product]);
 
@@ -23,7 +25,7 @@ useEffect(() => {
     // Fetch product details
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/api/auth/products/${id}/`);
+        const res = await fetch(`${API_BASE_URL}/api/auth/products/${id}/`);
         if (res.ok) {
           const data = await res.json();
           setProduct(data);
@@ -39,7 +41,7 @@ useEffect(() => {
 
 const addToCart = async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/auth/cart/add/${id}/", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/cart/add/${id}/`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -85,10 +87,10 @@ const addToCart = async () => {
         {product.images?.map((img, index) => (
           <img
             key={index}
-            src={`http://localhost:8000${img.image}`}
+            src={`${API_BASE_URL}${img.image}`}
             alt={`${product.name} thumbnail ${index + 1}`}
             className="thumbnail-vertical"
-            onClick={() => setMainImage(`http://localhost:8000${img.image}`)}
+            onClick={() => setMainImage(`${API_BASE_URL}${img.image}`)}
           />
         ))}
       </div>

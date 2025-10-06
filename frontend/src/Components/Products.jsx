@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CartButton from "./AddtoCart";
 import LikeButton from "./Like_button";
 import "./Products.css";
+import { API_BASE_URL } from "../utils/api";
 
 function Products({ setCartCount, setCartItems, cartItems, user }) {
   const [products, setProducts] = useState([]);
@@ -10,7 +11,7 @@ function Products({ setCartCount, setCartItems, cartItems, user }) {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch("http://localhost:8000/api/auth/Home/");
+        const res = await fetch(`${API_BASE_URL}/api/auth/Home/`);
         const data = await res.json();
         setProducts(data);
       } catch (err) {
@@ -26,7 +27,7 @@ function Products({ setCartCount, setCartItems, cartItems, user }) {
         <div className="product-card" key={product.id}>
           <Link to={`/products/${product.id}`} className="product-link">
             {product.images?.length > 0 && (
-              <img src={`http://localhost:8000${product.images[0].image}`} alt={product.name} />
+              <img src={`${API_BASE_URL}${product.images[0].image}`} alt={product.name} />
             )}
             <h3>{product.name}</h3>
           </Link>

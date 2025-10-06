@@ -5,6 +5,7 @@ import "./Navbar.css";
 import SearchBar from "./Search";
 import logo from "../assets/images/webmarket.png";
 import CartDropdown from "./CartDropdown";
+import { API_BASE_URL } from "../utils/api";
 
 
 
@@ -33,7 +34,7 @@ function getCookie(name) {
 
   async function handleLogout() {
   try {
-    const response = await fetch("http://localhost:8000/api/auth/logout/", {
+    const response = await fetch(`${API_BASE_URL}/api/auth/logout/`, {
       method: "POST",
       credentials: "include",
       headers: {

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Heart } from "lucide-react";
 import "./Like_button.css";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../utils/api";
 
 function getCookie(name) {
   let cookieValue = null;
@@ -23,7 +24,7 @@ function LikeButton({ productId, user }) {
     if (!user) return; // No need to fetch if user is not logged in
     const fetchLikes = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/auth/likes/", {
+        const res = await fetch(`${API_BASE_URL}/api/auth/likes/`, {
           credentials: "include",
         });
         if (res.ok) {
@@ -45,7 +46,7 @@ function LikeButton({ productId, user }) {
       }
       try {
 
-      const res = await fetch(`http://localhost:8000/api/auth/products/${productId}/like/`, {
+      const res = await fetch(`${API_BASE_URL}/api/auth/products/${productId}/like/`, {
         method: "POST",
         headers: { "X-CSRFToken": getCookie("csrftoken") },
         credentials: "include",

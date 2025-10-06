@@ -17,7 +17,7 @@ function SearchResults({setCartCount, setCartItems, user}) {
     const fetchResults = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/api/auth/products/search/?q=${encodeURIComponent(queryParam)}`);
+        const res = await fetch(`${API_BASE_URL}/api/auth/products/search/?q=${encodeURIComponent(queryParam)}`);
         if (res.ok) {
           const data = await res.json();
           setProducts(data);
@@ -40,7 +40,7 @@ function SearchResults({setCartCount, setCartItems, user}) {
         <div className="product-card" key={product.id}>
           <Link to={`/products/${product.id}`} className="product-link">
             {product.images?.length > 0 && (
-              <img src={`http://localhost:8000${product.images[0].image}`} alt={product.name} />
+              <img src={`${API_BASE_URL}${product.images[0].image}`} alt={product.name} />
             )}
             <h3>{product.name}</h3>
           </Link>
