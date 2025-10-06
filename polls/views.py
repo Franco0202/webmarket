@@ -185,3 +185,13 @@ def current_user(request):
         })
     
 
+# polls/views.py
+import os
+from django.conf import settings
+from django.http import FileResponse, Http404
+
+def frontend(request):
+    index_path = os.path.join(settings.BASE_DIR, 'polls', 'static', 'dist', 'index.html')
+    if not os.path.exists(index_path):
+        raise Http404("index.html not found")
+    return FileResponse(open(index_path, 'rb'), content_type='text/html')
