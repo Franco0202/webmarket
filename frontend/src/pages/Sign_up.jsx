@@ -43,7 +43,6 @@ export default function SignUp() {
       <div className="signup-card">
         <h2 className="signup-title">Sign Up</h2>
         <form className="signup-form" onSubmit={handleRegister}>
-          <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} required />
           <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
           <input type="password" placeholder="Password" value={password1} onChange={e => setPassword1(e.target.value)} required />
           <input type="password" placeholder="Confirm Password" value={password2} onChange={e => setPassword2(e.target.value)} required />

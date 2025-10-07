@@ -22,7 +22,7 @@ function LikedProducts({ user, setUser, cartItems, setCartItems, cartCount, setC
 
     const fetchLikes = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/api/auth/login/`, {
+        const res = await fetch(`${API_BASE_URL}/api/auth/likes/`, {
           credentials: "include",
         });
         if (res.ok) {

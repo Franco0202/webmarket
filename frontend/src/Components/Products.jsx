@@ -20,7 +20,7 @@ function Products({ setCartCount, setCartItems, cartItems, user }) {
     }
     fetchProducts();
   }, []);
-
+   console.log(p.images);
   return (
     <div className="product-container">
       {products.map((product) => (
@@ -29,6 +29,7 @@ function Products({ setCartCount, setCartItems, cartItems, user }) {
             {product.images?.length > 0 && (
               <img src={`${API_BASE_URL}${product.images[0].image}`} alt={product.name} />
             )}
+           
             <h3>{product.name}</h3>
           </Link>
 
