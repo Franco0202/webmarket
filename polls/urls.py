@@ -7,12 +7,6 @@ from django.http import FileResponse, Http404
 import os
 
 
-def frontend(request):
-    index_path = os.path.join(settings.BASE_DIR, 'polls/static/index.html')
-    if not os.path.exists(index_path):
-        raise Http404("index.html not found")
-    return FileResponse(open(index_path, 'rb'), content_type='text/html')
-
 app_name = 'polls'  # URL patterns for the polls app
 
 
@@ -23,7 +17,6 @@ urlpatterns = [
     path("auth/", include("dj_rest_auth.urls")),                  
     path("auth/registration/", include("dj_rest_auth.registration.urls")),
 
-    path('', frontend, name='frontend'),
 
 
     # PRODUCTS

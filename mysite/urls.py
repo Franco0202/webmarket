@@ -19,12 +19,21 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from django.http import FileResponse, Http404
+import os
+
+
+def frontend(request):
+    index_path = os.path.join(settings.BASE_DIR, 'polls/static/index.html')
+    if not os.path.exists(index_path):
+        raise Http404("index.html not found")
+    return FileResponse(open(index_path, 'rb'), content_type='text/html')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("polls.urls")), 
     path("accounts/", include("allauth.urls")),
-    path("", TemplateView.as_view(template_name="index.html")),  # React
+    path('', frontend, name='frontend'),  # Serve React app
 ]
 if settings.DEBUG: #sirve para servir archivos multimedia en modo debug 
                 # se usa el debug en true porque django no debe servir archivos estaticos
