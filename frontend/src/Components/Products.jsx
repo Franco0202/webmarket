@@ -20,7 +20,7 @@ function Products({ setCartCount, setCartItems, cartItems, user }) {
     }
     fetchProducts();
   }, []);
-   console.log(p.images);
+
   return (
     <div className="product-container">
       {products.map((product) => (
