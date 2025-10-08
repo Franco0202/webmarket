@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    "cloudinary",
+    "cloudinary_storage",
 ]
 
 SITE_ID = 1

@@ -11,7 +11,7 @@ function Products({ setCartCount, setCartItems, cartItems, user }) {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch("/static/demo_products.json");
+        const res = await fetch(`${API_BASE_URL}/api/auth/Home/`);
         const data = await res.json();
         setProducts(data);
       } catch (err) {
@@ -20,7 +20,6 @@ function Products({ setCartCount, setCartItems, cartItems, user }) {
     }
     fetchProducts();
   }, []);
-
   return (
     <div className="product-container">
       {products.map((product) => (

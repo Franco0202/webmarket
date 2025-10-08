@@ -16,8 +16,8 @@ function ContactSection() {
         </div>
         <div className="contact-item">
           <h3>Address</h3>
-          <p>123 Your Street</p>
-          <p>City, Country</p>
+          <p>Paso de los Toros</p>
+          <p>Uruguay</p>
         </div>
       </div>
       <p className="contact-footer">© {new Date().getFullYear()} Your Company. All rights reserved.</p>
