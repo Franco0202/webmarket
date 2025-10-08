@@ -1,4 +1,4 @@
-.google-login {
+.google-bnt {
   background: none;
   border: none;
   cursor: pointer;
@@ -6,7 +6,7 @@
   transition: 0.2s;
 }
 
-.google-login:hover {
+.google-btn:hover {
   color: #94d0f3; 
 
 }
