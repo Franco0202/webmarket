@@ -3,6 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import "./SearchResults.css";
 import CartButton from "../Components/AddtoCart";
 import LikeButton from "../Components/Like_button";
+import { API_BASE_URL } from "../utils/api";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);

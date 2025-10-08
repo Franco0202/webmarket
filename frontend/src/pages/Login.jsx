@@ -49,6 +49,23 @@ export default function LoginPage({ setUser }) {
     }
   };
 
+<GoogleLogin onLoginSuccess={async () => {
+  // after popup closes → fetch current user
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/auth/user/`, {
+      credentials: "include",
+    });
+    if (res.ok) {
+      const userData = await res.json();
+      setUser(userData);
+      navigate("/");
+    }
+  } catch (err) {
+    console.error("Error refreshing user after Google login:", err);
+  }
+}} />
+
+
   return (
     <div className="login-container">
       <div className="login-card">
