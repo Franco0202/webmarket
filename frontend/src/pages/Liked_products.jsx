@@ -63,7 +63,7 @@ function LikedProducts({ user, setUser, cartItems, setCartItems, cartCount, setC
           <Link to={`/products/${p.id}`} className="liked-product-card-link">
             {p.images?.length > 0 && (
               <img
-                src={`${API_BASE_URL}${p.images[0]?.image}`}
+                src={p.images[0]?.image}
                 alt={p.name}
               />
             )}

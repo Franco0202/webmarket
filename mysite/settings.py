@@ -91,16 +91,13 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-# ✅ Database (Render uses Postgres if set, else SQLite)
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': os.getenv("DB_ENGINE", "django.db.backends.sqlite3"),
-        'NAME': os.getenv("DB_NAME", BASE_DIR / 'db.sqlite3'),
-        'USER': os.getenv("DB_USER", ""),
-        'PASSWORD': os.getenv("DB_PASSWORD", ""),
-        'HOST': os.getenv("DB_HOST", ""),
-        'PORT': os.getenv("DB_PORT", ""),
-    }
+    "default": dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+    )
 }
 
 # ✅ Authentication backends
