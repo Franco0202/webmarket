@@ -182,3 +182,5 @@ ACCOUNT_USERNAME_REQUIRED = False          # don't require username
 ACCOUNT_EMAIL_REQUIRED = True              # require email
 ACCOUNT_AUTHENTICATION_METHOD = "email"   # login using email
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
+print("Cloudinary Name:", os.getenv("CLOUDINARY_CLOUD_NAME"))
