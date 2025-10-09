@@ -90,7 +90,7 @@ const addToCart = async () => {
             src={img.image}
             alt={`${product.name} thumbnail ${index + 1}`}
             className="thumbnail-vertical"
-            onClick={() => setMainImage(`${API_BASE_URL}${img.image}`)}
+            onClick={() => setMainImage(img.image)}
           />
         ))}
       </div>
