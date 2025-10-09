@@ -195,3 +195,15 @@ def frontend(request):
     if not os.path.exists(index_path):
         raise Http404("index.html not found")
     return FileResponse(open(index_path, 'rb'), content_type='text/html')
+
+
+
+
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+
+def create_admin(request):
+    if User.objects.filter(username="admin").exists():
+        return HttpResponse("Admin already exists")
+    User.objects.create_superuser("admin", "admin@example.com", "admin123")
+    return HttpResponse("Superuser created!")
