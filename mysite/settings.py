@@ -122,9 +122,7 @@ LOGIN_REDIRECT_URL = "/"  # ✅ let Django serve React root
 LOGOUT_REDIRECT_URL = "/"
 
 
-
-# ✅ Media files
-MEDIA_URL = '/media/'
+MEDIA_URL = ''
 
 
 # ✅ Email
