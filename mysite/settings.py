@@ -122,7 +122,6 @@ LOGIN_REDIRECT_URL = "/"  # ✅ let Django serve React root
 LOGOUT_REDIRECT_URL = "/"
 
 
-MEDIA_URL = ''
 
 
 # ✅ Email
@@ -142,19 +141,9 @@ REST_FRAMEWORK = {
     ],
 }
 
-# ✅ CORS
-CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://webmarket-q1am.onrender.com",  # ✅ replace after deploy
-]
-CORS_ALLOW_CREDENTIALS = True
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:5173",
-    "https://webmarket-q1am.onrender.com",  # ✅ replace after deploy
-]
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 # ✅ Security (only enable in production)
 SECURE_SSL_REDIRECT = not DEBUG
@@ -181,4 +170,3 @@ ACCOUNT_EMAIL_REQUIRED = True              # require email
 ACCOUNT_AUTHENTICATION_METHOD = "email"   # login using email
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
-print("Cloudinary Name:", os.getenv("CLOUDINARY_CLOUD_NAME"))
