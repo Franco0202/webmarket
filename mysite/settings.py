@@ -92,11 +92,15 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 import dj_database_url
+import os
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 DATABASES = {
-    "default": dj_database_url.config(
+    'default': dj_database_url.config(
         default=os.getenv("DATABASE_URL"),
-        conn_max_age=600,
+        conn_max_age=600,  # optional, keeps connections open
+        ssl_require=True   # Render Postgres requires SSL
     )
 }
 

@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 from . import views
 from django.http import FileResponse, Http404
 import os
-
+from django.urls import path
+from .views import create_admin
 
 app_name = 'polls'  # URL patterns for the polls app
 
@@ -16,7 +17,7 @@ urlpatterns = [
     # 🔑 AUTH (from dj-rest-auth + allauth)
     path("auth/", include("dj_rest_auth.urls")),                  
     path("auth/registration/", include("dj_rest_auth.registration.urls")),
-
+    path("create-admin/", create_admin),
 
 
     # PRODUCTS
