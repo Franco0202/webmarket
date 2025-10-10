@@ -87,6 +87,7 @@ print("🔍 CLOUDINARY DEBUG:", {
 })
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
+CLOUDINARY_SECURE = True
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 

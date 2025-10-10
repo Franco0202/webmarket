@@ -41,7 +41,7 @@ function SearchResults({setCartCount, setCartItems, user}) {
         <div className="product-card" key={product.id}>
           <Link to={`/products/${product.id}`} className="product-link">
             {product.images?.length > 0 && (
-              <img src={`${API_BASE_URL}${product.images[0].image}`} alt={product.name} />
+              <img src={product.images[0].image}alt={product.name} />
             )}
             <h3>{product.name}</h3>
           </Link>
