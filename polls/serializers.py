@@ -2,7 +2,12 @@ from rest_framework import serializers
 from .models import Products, product_images
 
 class ProductImageSerializer(serializers.ModelSerializer):
-    image = serializers.ImageField()  # ensures full URL is returned
+    image = serializers.SerializerMethodField()
+
+    def get_image(self, obj):
+        if obj.image:
+            return obj.image.url.replace("http://", "https://")
+        return None
 
     class Meta:
         model = product_images
