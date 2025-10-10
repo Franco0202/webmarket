@@ -19,12 +19,12 @@ class Products(models.Model):
     def total_likes(self):
         return self.like_set.filter(like=True).count()
     
+from cloudinary.models import CloudinaryField
+
 class product_images(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="product_images/")
-    def __str__(self):
-        return f"Image for {self.product.name}"
-    
+    image = CloudinaryField('image')
+
 
 class Order(models.Model):
     STATUS_CHOICES = [
