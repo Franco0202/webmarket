@@ -77,7 +77,7 @@ function CartDropdown({ cartItems, cartCount, setCartItems, setCartCount, user})
                 <Link to={`/products/${item.product.id}`} className="cart-item-link">
                   <div className="cart-item">
                     <img
-                      src={`${API_BASE_URL}${item.product.images?.[0]?.image ?? ""}`}
+                      src={item.product.images?.[0]?.image ?? ""}
                       alt={item.product.name}
                       className="cart-item-image"
                     />
