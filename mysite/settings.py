@@ -109,18 +109,17 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-
-# ✅ Google login
+#Google login#
 SOCIALACCOUNT_PROVIDERS = {
-    "google": {
-        "SCOPE": ["profile", "email"],
-        "AUTH_PARAMS": {"access_type": "online"},
+    'google': {
+        'APP': {
+            'client_id': os.getenv('SOCIAL_AUTH_GOOGLE_CLIENT_ID'),
+            'secret': os.getenv('SOCIAL_AUTH_GOOGLE_SECRET'),
+            'key': ''
+        },
+        'SCOPE': ['profile', 'email'],
+        'AUTH_PARAMS': {'access_type': 'online'},
     }
-}
-SOCIALACCOUNT_PROVIDERS["google"]["APP"] = {
-    "client_id": os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY"),
-    "secret": os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET"),
-    "key": ""
 }
 
 LOGIN_REDIRECT_URL = "/"  # ✅ let Django serve React root
