@@ -16,7 +16,7 @@ function ProductDetail({setCartItems, user, setUser, setCartCount, cartItems, ca
 
 useEffect(() => {
   if (product?.images?.length > 0) {
-    setMainImage(`${API_BASE_URL}${product.images[0].image}`);
+    setMainImage(product.images[0].image);
   }
 }, [product]);
 

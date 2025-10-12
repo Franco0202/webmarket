@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from django.http import FileResponse, Http404
+from django.urls import re_path
 import os
 
 
@@ -33,7 +34,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("polls.urls")), 
     path("accounts/", include("allauth.urls")),
-    path('', frontend, name='frontend'),  # Serve React app
+    re_path(r"^(?!api|admin|accounts).*$", frontend, name='frontend'),
 ]
 if settings.DEBUG: #sirve para servir archivos multimedia en modo debug 
                 # se usa el debug en true porque django no debe servir archivos estaticos
