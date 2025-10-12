@@ -4,9 +4,7 @@
   cursor: pointer;
   padding: 0;
   outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
 }
 
 .google-icon {

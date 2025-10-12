@@ -117,6 +117,11 @@ SOCIALACCOUNT_PROVIDERS = {
         "AUTH_PARAMS": {"access_type": "online"},
     }
 }
+SOCIALACCOUNT_PROVIDERS["google"]["APP"] = {
+    "client_id": os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY"),
+    "secret": os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET"),
+    "key": ""
+}
 
 LOGIN_REDIRECT_URL = "/"  # ✅ let Django serve React root
 LOGOUT_REDIRECT_URL = "/"
