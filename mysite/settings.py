@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     "cloudinary_storage",
 ]
 
-SITE_ID = 2
+SITE_ID = 1
 
 # ✅ Middleware
 MIDDLEWARE = [
@@ -130,6 +130,7 @@ LOGOUT_REDIRECT_URL = "/"
 
 
 # ✅ Email
+ACCOUNT_EMAIL_VERIFICATION = "none"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
