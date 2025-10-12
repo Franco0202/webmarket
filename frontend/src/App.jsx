@@ -33,7 +33,7 @@ function App() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/auth/user/", {
+        const res = await fetch(`${API_BASE_URL}/api/auth/user/`, {
           credentials: "include",
           headers: { "X-CSRFToken": getCookie("csrftoken") },
         });
@@ -58,7 +58,7 @@ function App() {
 
     const fetchCart = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/auth/cart/", {
+        const res = await fetch(`${API_BASE_URL}/api/auth/cart/`, {
           credentials: "include",
           headers: { "X-CSRFToken": getCookie("csrftoken") },
         });
