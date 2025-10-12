@@ -14,6 +14,7 @@ function App() {
   const [cartCount, setCartCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [cartLoaded, setCartLoaded] = useState(false);
+  const [loadingUser, setLoadingUser] = useState(true); 
 
   function getCookie(name) {
     let cookieValue = null;
@@ -48,7 +49,9 @@ function App() {
       } catch (err) {
         console.error("Error fetching user:", err);
         setUser(null);
-      }
+      } finally {
+      setLoadingUser(false); // ✅ FINISH LOADING USER
+    }
     };
     fetchUser();
   }, []);

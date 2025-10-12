@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "../utils/api";
 import { FaGoogle } from "react-icons/fa";
+import "./Google_login.css";
 
 function GoogleLogin({ onLoginSuccess }) {
   const handleGoogleLogin = () => {
