@@ -111,20 +111,25 @@ AUTHENTICATION_BACKENDS = [
 ]
 #Google login#
 SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': os.getenv('SOCIAL_AUTH_GOOGLE_CLIENT_ID'),
-            'secret': os.getenv('SOCIAL_AUTH_GOOGLE_SECRET'),
-            'key': ''
+    "google": {
+        "SCOPE": ["profile", "email"],
+        "AUTH_PARAMS": {"access_type": "online"},
+        # Read client ID and secret from environment variables
+        "APP": {
+            "client_id": os.getenv("SOCIAL_AUTH_GOOGLE_CLIENT_ID"),
+            "secret": os.getenv("SOCIAL_AUTH_GOOGLE_SECRET"),
+            "key": "",  # leave empty
         },
-        'SCOPE': ['profile', 'email'],
-        'AUTH_PARAMS': {'access_type': 'online'},
     }
 }
 
 LOGIN_REDIRECT_URL = "/"  # ✅ let Django serve React root
 LOGOUT_REDIRECT_URL = "/"
 
+if os.getenv("DEBUG", "False") == "True":
+    print("🔑 Google Client ID:", os.getenv("SOCIAL_AUTH_GOOGLE_CLIENT_ID"))
+    print("🔑 Google Secret (first 4 chars):", os.getenv("SOCIAL_AUTH_GOOGLE_SECRET")[:4])
+    print("🌐 SITE_ID:", SITE_ID)
 
 
 
