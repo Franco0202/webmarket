@@ -7,6 +7,7 @@ import SignUp from "./pages/Sign_up";
 import ProductDetail from "./pages/Product_detail";
 import LikedProducts from "./pages/Liked_products";
 import SearchResults from "./pages/SearchResults";
+import { API_BASE_URL } from "./utils/api";
 
 function App() {
   const [user, setUser] = useState(null);
