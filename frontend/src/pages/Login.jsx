@@ -89,8 +89,6 @@ export default function LoginPage({ setUser }) {
           <button type="submit" className="login-btn">Login</button>
         </form>
 
-        <div className="divider">or continue with</div>
-        <GoogleLogin />
 
         <div className="signup-text">
           Don’t have an account?{" "}
