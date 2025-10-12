@@ -127,6 +127,7 @@ function App() {
               setCartItems={setCartItems}
               cartLoaded={cartLoaded}
               setCartLoaded={setCartLoaded}
+              loadingUser={loadingUser}
             />
           }
         />

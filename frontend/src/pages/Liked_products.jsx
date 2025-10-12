@@ -5,18 +5,19 @@ import Navbar from "../Components/Navbar";
 import LikeButton from "../Components/Like_button";
 import { API_BASE_URL } from "../utils/api";
 
-function LikedProducts({ user, setUser, cartItems, setCartItems, cartCount, setCartCount }) {
+function LikedProducts({ user, setUser, cartItems, setCartItems, cartCount, setCartCount, loadingUser }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // ✅ Redirect if not logged in
+  // ✅ Wait for user loading to finish before redirecting
   useEffect(() => {
-    if (!user) {
+    if (!loadingUser && !user) {
       navigate("/login");
     }
-  }, [user, navigate]);
+  }, [user, loadingUser, navigate]);
 
+  
   useEffect(() => {
     if (!user) return; // don't fetch if no user
 

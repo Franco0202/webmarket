@@ -1,12 +1,19 @@
-.google-bnt {
+.google-btn {
   background: none;
   border: none;
   cursor: pointer;
-  cursor: pointer;
-  transition: 0.2s;
+  padding: 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.google-btn:hover {
-  color: #94d0f3; 
+.google-icon {
+  color: #000; /* default icon color */
+  font-size: 28px; /* adjust size if needed */
+}
 
+.google-btn:hover .google-icon {
+  color: skyblue;
 }
