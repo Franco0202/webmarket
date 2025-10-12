@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     "cloudinary_storage",
 ]
 
-SITE_ID = 2
+SITE_ID = 1
 
 # ✅ Middleware
 MIDDLEWARE = [
