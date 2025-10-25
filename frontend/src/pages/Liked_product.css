@@ -10,13 +10,13 @@ body {
 .liked-products {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* space between cards */
-  background-color: #fff; /* white background for the container */
+  gap: 15px; 
+  background-color: #fff; 
   border-radius: 12px;
-  max-width: 1200px; /* make it smaller than full page width */
-  margin: 100px auto; /* center horizontally with margin from top */
-  padding: 30px; /* give space around the cards */
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1); /* optional nice shadow */
+  max-width: 1200px; 
+  margin: 100px auto;
+  padding: 30px; 
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1); 
   position: relative;
 }
 
@@ -25,9 +25,9 @@ body {
   align-items: center;
   gap: 20px;
   border: 1px solid #ddd;
-  background-color: #fafafa; /* slightly different so cards stand out */
+  background-color: #fafafa; 
   border-radius: 8px;
-  width: 100%; /* stretch inside container */
+  width: 100%; 
   position: relative; 
 }
 .liked-product-card-link{
@@ -38,9 +38,9 @@ body {
   cursor: pointer; 
   gap: 20px;
   border: 1px solid #ddd;
-  background-color: #fafafa; /* slightly different so cards stand out */
+  background-color: #fafafa; 
   border-radius: 8px;
-  width: 100%; /* stretch inside container */
+  width: 100%; 
   position: relative; 
   transition: color 0,2s ;
 }
@@ -62,21 +62,21 @@ body {
   word-break: break-all;
   font-size: small;
   justify-content: flex-start;
-  white-space: nowrap;      /* keep text in one line */
-  overflow: hidden;         /* cut off overflow */
-  text-overflow: ellipsis;  /* show "..." */
-  max-width: 200px;         /* adjust width to your layout */
+  white-space: nowrap;      
+  overflow: hidden;       
+  text-overflow: ellipsis;  
+  max-width: 200px;        
 }
 
 .liked-product-text {
   font-size: 15px;
-  max-width: 500px;     /* limit width */
-  display: -webkit-box; /* enable flex-like box for clamping */
+  max-width: 500px;    
+  display: -webkit-box; 
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5; /* show max 3 lines */
-  overflow: hidden;     /* hide extra text */
-  text-overflow: ellipsis; /* adds "..." */
-  white-space: normal;  /* allow wrapping */
+  -webkit-line-clamp: 5; 
+  overflow: hidden;     
+  text-overflow: ellipsis; 
+  white-space: normal;  
   word-wrap: break-word;
 }
 

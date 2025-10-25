@@ -2,7 +2,7 @@
 
 .product-detail-container {
   display: grid;
-  grid-template-columns: 500px 1fr; /* left fixed, right flexible */
+  grid-template-columns: 500px 1fr; 
   gap: 200px;
   margin: 90px auto 0 auto;
   max-width: 1300px;
@@ -24,14 +24,14 @@
     font-size: 1.2rem;
     color: #424141;
     word-wrap: break-word;
-    overflow-wrap: anywhere;      /* breaks at any character if needed */
-    white-space: normal;          /* allows normal line wrapping */
+    overflow-wrap: anywhere;     
+    white-space: normal;          
 }
 .product-info h1{
     color: #424141;
     word-wrap: break-word;
-    overflow-wrap: anywhere;      /* breaks at any character if needed */
-    white-space: normal;          /* allows normal line wrapping */
+    overflow-wrap: anywhere;      
+    white-space: normal;          
     font-size: 3rem;
 }
 
@@ -39,12 +39,12 @@
 
 .image-row {
   display: flex;
-  gap: 15px; /* space between thumbnails and main image */
+  gap: 15px; 
 }
 
 .thumbnails-vertical {
   display: flex;
-  flex-direction: column; /* stack thumbnails vertically */
+  flex-direction: column; 
   gap: 10px;
 }
 
@@ -63,21 +63,21 @@
 }
 
 .main-image-container {
-  width: 600px;          /* fixed width */
-  height: 500;         /* optional fixed height */
+  width: 600px;         
+  height: 500;      
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;      /* crop if image is bigger */
+  overflow: hidden;      
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  background-color: #f8f8f8; /* optional: background for empty space */
+  background-color: #f8f8f8; 
 }
 
 .big-image {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;   /* keeps aspect ratio inside container */
+  object-fit: contain;  
 }
 
 

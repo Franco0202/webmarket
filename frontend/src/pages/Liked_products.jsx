@@ -10,7 +10,7 @@ function LikedProducts({ user, setUser, cartItems, setCartItems, cartCount, setC
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // ✅ Wait for user loading to finish before redirecting
+  // Wait for user loading to finish before redirecting
   useEffect(() => {
     if (!loadingUser && !user) {
       navigate("/login");

@@ -1,18 +1,18 @@
 .product-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1px; /* space between cards */
+  gap: 1px; 
   max-width: 1280px;
-  margin: 70px auto; /* center the whole grid */
+  margin: 70px auto; 
   padding: 20px;
-  overflow-x: hidden; /* only hide horizontal overflow, not vertical */
+  overflow-x: hidden; 
 }
 
 .product-card {
   background: #ffffffc5;
   padding: 16px;
-  white-space: normal;       /* no line breaks */
-  overflow: break-word;;          /* hide extra text */
+  white-space: normal;       
+  overflow: break-word;;          
   word-wrap: break-word;  
 }
 
@@ -25,19 +25,19 @@
 
 .price {
   display: flex;
-  align-items: flex-start; /* makes the $ sit at the top-left */
-  gap: 2px; /* little space between $ and number */
+  align-items: flex-start; 
+  gap: 2px; 
 }
 
 .price .currency {
-  font-size: 12px;   /* smaller $ */
+  font-size: 12px;  
   color: rgb(54, 54, 54);
-  line-height: 1;    /* avoids vertical misalignment */
-  margin-top: 5px;   /* adjust if you want it lower/higher */
+  line-height: 1;    
+  margin-top: 5px;   
 }
 
 .price .amount {
-  font-size: 25px;   /* bigger price */
+  font-size: 25px;   
   color: rgb(54, 54, 54);
   font-weight: bold;
 }

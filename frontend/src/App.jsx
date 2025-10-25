@@ -31,7 +31,7 @@ function App() {
     return cookieValue;
   }
 
-  // 1. Fetch user first
+  //fetch user first
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -50,13 +50,13 @@ function App() {
         console.error("Error fetching user:", err);
         setUser(null);
       } finally {
-      setLoadingUser(false); // ✅ FINISH LOADING USER
+      setLoadingUser(false); 
     }
     };
     fetchUser();
   }, []);
 
-  // 2. Only fetch cart when user is available
+
   useEffect(() => {
     if (!user) return;
 

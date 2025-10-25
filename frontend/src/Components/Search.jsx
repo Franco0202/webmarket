@@ -11,7 +11,7 @@ function SearchBar() {
     e.preventDefault();
     if (!query) return;
 
-    // Navigate to a SearchResults page with query as a URL param
+
     navigate(`/search?q=${encodeURIComponent(query)}`);
   };
 

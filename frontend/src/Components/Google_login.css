@@ -8,8 +8,8 @@
 }
 
 .google-icon {
-  color: #000; /* default icon color */
-  font-size: 28px; /* adjust size if needed */
+  color: #000; 
+  font-size: 28px; 
 }
 
 .google-btn:hover .google-icon {

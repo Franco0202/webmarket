@@ -1,5 +1,12 @@
- /* ContactSection.css */
-.contact-container {
+
+
+ body {
+  margin: 0;
+  padding: 0;
+}
+
+
+ .contact-container {
   background-color: #cfcfcf;
   padding: 40px 20px;
   text-align: center;

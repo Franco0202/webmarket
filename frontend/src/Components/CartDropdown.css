@@ -78,10 +78,10 @@
 .cart-item-name {
   font-size: 14px;
   font-weight: 500;
-  white-space: nowrap;      /* keep text in one line */
-  overflow: hidden;         /* cut off overflow */
-  text-overflow: ellipsis;  /* show "..." */
-  max-width: 300px;         /* adjust width to your layout */
+  white-space: nowrap;      
+  overflow: hidden;         
+  text-overflow: ellipsis;  
+  max-width: 300px;         
 }
 
 .cart-item-price {

@@ -9,13 +9,13 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #d6e6f2, #f2f2f2, #f9f7d9); /* soft blue, grey, yellow */
+  background: linear-gradient(135deg, #d6e6f2, #f2f2f2, #f9f7d9); 
   font-family: 'PT Sans', sans-serif;
 }
 
 /* Card container */
 .signup-card {
-  background: #ffffff; /* matches product containers */
+  background: #ffffff;
   padding: 40px 30px;
   border-radius: 16px;
   width: 100%;
@@ -31,7 +31,7 @@
   font-size: 26px;
   font-weight: 600;
   margin-bottom: 25px;
-  color: #333; /* similar to product titles */
+  color: #333; 
 }
 
 /* Form inputs */
@@ -48,7 +48,7 @@
 
 .signup-form input:focus {
   outline: none;
-  border-color: #94d0f3; /* subtle accent */
+  border-color: #94d0f3; 
 }
 
 /* Error message */
@@ -68,7 +68,7 @@
   border-radius: 12px;
   font-family: 'Varela Round';            
   font-size: 18px;                
-  font-weight: 900;       /* bold letters */
+  font-weight: 900;       
   letter-spacing: 2px;            
   text-transform: uppercase;  
   cursor: pointer;
@@ -95,15 +95,15 @@
 .divider::before,
 .divider::after {
   content: "";
-  flex: 1;                 /* make lines stretch */
+  flex: 1;                
   height: 1px;
-  background: #ccc;        /* line color */
+  background: #ccc;       
 }
 
 .divider::before {
-  margin-right: 10px;      /* spacing between line and text */
+  margin-right: 10px;      
 }
 
 .divider::after {
-  margin-left: 10px;       /* spacing between line and text */
+  margin-left: 10px;       
 }

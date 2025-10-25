@@ -28,13 +28,13 @@ export default function LoginPage({ setUser }) {
           "Content-Type": "application/json",
           "X-CSRFToken": getCookie("csrftoken"),
         },
-        body: JSON.stringify({ email, password }), // or username if your backend uses it
+        body: JSON.stringify({ email, password }), 
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        // ✅ fetch the logged-in user
+        // fetch the logged-in user
         const userRes = await fetch(`${API_BASE_URL}/api/auth/user/`, {
           credentials: "include",
         });
@@ -50,7 +50,7 @@ export default function LoginPage({ setUser }) {
   };
 
 <GoogleLogin onLoginSuccess={async () => {
-  // after popup closes → fetch current user
+
   try {
     const res = await fetch(`${API_BASE_URL}/api/auth/user/`, {
       credentials: "include",
