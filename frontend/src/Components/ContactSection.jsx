@@ -20,7 +20,7 @@ function ContactSection() {
           <p>Uruguay</p>
         </div>
       </div>
-      <p className="contact-footer">© {new Date().getFullYear()} Your Company. All rights reserved.</p>
+      <p className="contact-footer">© {new Date().getFullYear()}Webmarket</p>
     </div>
   );
 }
